@@ -13,6 +13,10 @@ public class MissoesModel {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private Long id;
-    String nome;
-    String dificuldade; //Poderia ser uma classe ENUM
+    private String nome;
+    private String dificuldade; //Poderia ser uma classe ENUM
+    
+    // @OneToMany significa que uma missão terá apenas um ninja
+    @OneToMany
+    private List<NinjaModel> ninja;
 }

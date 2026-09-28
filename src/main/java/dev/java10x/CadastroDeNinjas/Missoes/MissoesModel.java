@@ -1,13 +1,18 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import dev.java10x.CadastroDeNinjas.NinjaModel;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity 
 @Table(name = "tb_missoes")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class MissoesModel {
 
     @Id 
@@ -17,6 +22,6 @@ public class MissoesModel {
     private String dificuldade; //Poderia ser uma classe ENUM
     
     // @OneToMany significa que uma missão terá apenas um ninja
-    @OneToMany
+    @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninja;
 }

@@ -13,14 +13,18 @@ import lombok.NoArgsConstructor;
 @Table(name = "tb_cadastro")
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Data //Definindo getters e setter
 public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String nome;
+
+    @Column(unique = true)
     private String email;
+
     private int idade;
 
     //@ManyToOne um ninja tem apenas uma missão
